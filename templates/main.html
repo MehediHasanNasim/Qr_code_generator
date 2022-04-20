@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} 
+main
+{%endblock title %} 
+
+{% block projectactive %}
+{% endblock projectactive %}
+
+{% block bodycontent %}
+
+<div class="container mt-4 fw-bolder"> 
+    <div class="card"> 
+        <div class="card"> 
+            <div class="card-header bg-secondary border-dark">  
+                <body class="my_body">  
+
+                    
+                    {% for client in object_list %}
+                    <b> {{client}} </b> 
+                    <a href="{% url 'client-pdf-view' client.pk %}"><button class="btn btn-primary">pdf</button></a> 
+                    <br>
+                    <hr>
+                    {% endfor %} 
+
+
+
+
+
+                </body>
+            </div>
+                
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}
+
+{% block extrajs %} 
+{% endblock extrajs %}

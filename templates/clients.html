@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+    
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'css/notfound.css' %}">
+{% endblock extracss %}
+
+    
+{% block title %}
+    Clients
+{% endblock title %} 
+
+    
+
+    
+{% block bodycontent %}
+
+<br>
+<div class="container mt-4 fw-bolder"> 
+  <div class="card"> 
+    
+  </div>
+  <div class="card"> 
+    <div class="card-header bg-secondary border-dark"> 
+        <body class="my_body">  
+
+<div class="card div_main div_register bg-secondary">
+    <h1 class=" text-dark text-center border border-dark" ><b> List of Clients </b></h1>
+    <div class="card-body text-dark "> 
+<div>
+
+
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Client name</th>
+        <th scope="col">Click for Client Info</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"></th>
+        <td>
+          
+
+          {% if client_list %}
+  
+            {% for client in client_list  %}
+            
+            <div> <div  class="">
+              <b>{{ client.client_name }}</b> </div> 
+
+            {% endfor %}
+          {% else %}
+    
+            <h2>No Clients</h2>
+          {% endif %}
+            </div>
+
+        </td>
+        <td>
+
+
+          {% if client_list %}
+  
+          {% for client in client_list  %}
+          
+          <li> <a  class="div_register" href="{% url 'client_info' client.id %}">
+            <b>{{ client.client_name }}</b> </a> <br></li> 
+          {% endfor %}
+                          
+          {% else %}
+          
+                
+          <h2>No Client</h2>
+          {% endif %}
+            </div>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+
+
+  </div>
+</div>
+
+
+
+{% endblock bodycontent %}
+

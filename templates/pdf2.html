@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+<meta charset='UTF-8'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="{% static 'static\style.css' %}" type="text/css">  -->
+
+
+
+{% block extracss %}
+{% endblock extracss %}
+    
+<title>  
+    {% block title %}
+          
+    {% endblock title %}
+</title>
+
+<style>
+
+    .container{
+        background-image: url(media/cer_background.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+    .back {
+        background-color: 'lightblue';
+    }
+    @page {
+        size: letter landscape;
+
+        @frame content_frame {
+            left: 20pt;
+            right: 0pt;
+            width: 707.1pt;
+            top: 50pt;
+            height: 500pt;
+            -pdf-frame-border: 0;    /* for debugging the layout */
+        }
+
+
+</style>
+
+</head> 
+{% block bodycontent %}
+
+<div class="container">
+    <body class="page">
+        <h1 class="text-center"> Certification of Zay Corporation </h1>
+        &nbsp;&nbsp;<b> Client Name: </b> {{client}}  
+        <br>
+        &nbsp;&nbsp;<b> description: </b> {{client.description|linebreaks}}  
+        <br>
+        &nbsp;&nbsp;<b> Logo Name: </b> {{client.logo}} 
+        <br>
+        &nbsp;&nbsp;<b>logo url: </b> {{client.logo.url}} 
+        <br>
+        &nbsp;&nbsp;<b> logo path: </b>{{client.logo.path}} 
+    
+        <div >
+          <img src="{{client.logo.path}}" height='100px'>
+          <img src="static/logo.jfif" height='100px'><br>
+
+          <p><b> QR Code: </b></p><img src="{{client.qr_code.path}}" height='100px'>
+
+        </div>
+
+
+    </body>
+</div>
+
+
+
+
+{% endblock bodycontent %}
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+
+{% block extrajs %}
+{% endblock extrajs %}
+    
+</body>
+</html>

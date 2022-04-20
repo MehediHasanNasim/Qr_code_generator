@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block extracss %}
+{% endblock extracss %}
+
+<title>
+  Client info
+</title>
+{% block title %}
+
+{% endblock title %}
+
+{% block projectinfoactive %}
+    
+{% endblock projectinfoactive %}
+
+
+{% block bodycontent %} 
+
+<div class="container mt-4 fw-bolder"> 
+  <div class="card"> 
+    <div class="card-header bg-dark"> 
+        <body class="my_body">
+          <h2 class="p-1 text-primary text-center mt-0 infohead"><b> {{ client.client_name }}'s info </b></h2>
+      
+      <div class="p-3 card-body h4">
+          
+      
+          <div class="card-body">
+            <h4 class="text-white">Client Name :  {{ client.client_name }}</h4>
+            <h4 class="text-white">Email : {{ client.email }}</h4>
+            <h4 class="text-white">Phone : {{ client.phone }}</h4>
+            <h4 class="text-white">Course : {{ client.course }}</h4>
+      
+          </div>
+      
+      </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+      
+      <a href="{% url 'home' %}" class="btn btn-primary">Back to Home?</a><br>
+      
+      
+      </body>
+
+    </div>
+  </div>
+</div>
+
+{% endblock bodycontent %}
+
+
+{% block extrajs %}
+<script>
+    $(document).ready(function () {
+      window.history.replaceState('', '', window.location.href);
+    });
+  </script>
+{% endblock extrajs %}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="Description" content="Enter your description here" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
+    />
+
+    <style>
+      .dev{
+        border-radius: 5px;
+        background: rgb(109, 109, 19);
+        color: #fff;
+        margin: 2px;
+        display: inline-block;
+        padding: 2px;
+
+      }
+    </style>
+   
+
+    <title>  
+      {% block title %}
+      {% endblock title %}
+
+
+  </title>
+
+  </head>
+  <body class="my_body">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="{% url 'home' %}"
+        ><b><strong>Home</strong></b></a
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item 
+          {% block homeactive %} 
+          {% endblock homeactive %}">
+            <a class="nav-link" href="{% url 'clients' %}"><b>clients</b></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'client-list-view' %}"><b>pdf</b></a>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+
+    {% block bodycontent %} 
+      <div class="container-fluid">
+
+      </div>
+    {% endblock bodycontent %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+
+    {% block extrajs %} 
+    {% endblock extrajs %}
+  </body>
+</html>
